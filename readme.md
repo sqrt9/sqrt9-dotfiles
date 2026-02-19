@@ -7,5 +7,9 @@ dotfiles for various programs
 - zshrc
 - zshenv
 - tmux
-- fonts
 - iterm2
+
+includes
+* random fonts
+* random wallpapers
+* random profile icons
