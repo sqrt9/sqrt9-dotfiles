@@ -1,0 +1,11 @@
+.monaco-list .monaco-list-row {
+    font-size: 15px !important;  /* adjust as needed */
+}
+
+.quick-open-widget .quick-open-input {
+    font-size: 15px !important;  /* adjust as needed */
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container {
+    --editor-group-tab-height: 23px
+}

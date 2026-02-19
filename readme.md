@@ -9,7 +9,4 @@ dotfiles for various programs
 - tmux
 - iterm2
 
-includes
 * random fonts
-* random wallpapers
-* random profile icons

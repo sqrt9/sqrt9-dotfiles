@@ -1,0 +1,96 @@
+#
+#
+#    by theo
+#
+#
+
+
+#---rotate, toggle float, balance windows---
+shift + alt - r : yabai -m space --rotate 270
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+shift + alt - f : yabai -m config layout | grep -q "bsp" && yabai -m config layout float || yabai -m config layout bsp
+shift + alt - e : yabai -m space --balance
+
+
+#---move windows around in current space---
+ctrl + alt - z : yabai -m window --warp west
+ctrl + alt - x : yabai -m window --warp east
+ctrl + alt - c : yabai -m window --warp north
+ctrl + alt - v : yabai -m window --warp south
+
+
+#---focus windows---
+alt - z : yabai -m window --focus west
+alt - x : yabai -m window --focus east
+alt - c : yabai -m window --focus north
+alt - v : yabai -m window --focus south
+
+
+#---focus different spaces---
+shift + alt - x : yabai -m space --focus $(next_display_or_space_looping -f -s); \
+                  echo "f" > $YABAI_LAST_DIRECTION &;
+shift + alt - z : yabai -m space --focus $(next_display_or_space_looping -b -s); \
+                  echo "b" > $YABAI_LAST_DIRECTION &;
+
+
+# shift + alt - c : yabai -m display --focus next
+shift + alt - v : yabai -m display --focus $(next_display_or_space_looping -f -d)
+shift + alt - c : yabai -m display --focus $(next_display_or_space_looping -b -d)
+
+
+#---move window between spaces---
+shift + ctrl - x : yabai -m window --space $(next_display_or_space_looping -f -s) --focus; \
+                   echo "f" > $YABAI_LAST_DIRECTION &;
+shift + ctrl - z : yabai -m window --space $(next_display_or_space_looping -b -s) --focus; \
+                   echo "b" > $YABAI_LAST_DIRECTION &;
+
+#---move window between displays---
+shift + ctrl - c : yabai -m window --display $(next_display_or_space_looping -b -d) --focus; \
+                   echo "b" > $YABAI_LAST_DIRECTION &;
+shift + ctrl - v : yabai -m window --display $(next_display_or_space_looping -f -d) --focus; \
+                   echo "f" > $YABAI_LAST_DIRECTION &;
+
+
+#---make window larger---
+# (0x18 - ">" | 0x1B - "<")
+shift + alt - 0x18 : yabai -m window yabai -m window --resize right:30:0; \
+                     yabai -m window yabai -m window --resize left:30:0; \
+                     yabai -m window yabai -m window --resize bottom:30:0; \
+                     yabai -m window yabai -m window --resize top:30:0; 
+
+shift + alt - 0x1B : yabai -m window yabai -m window --resize right:-30:0; \
+                     yabai -m window yabai -m window --resize left:-30:0; \
+                     yabai -m window yabai -m window --resize bottom:-30:0; \
+                     yabai -m window yabai -m window --resize top:-30:0; 
+
+
+#---move spaces---
+shift + ctrl + alt - x : yabai -m space --move next; \
+                         echo "f" > $YABAI_LAST_DIRECTION &;
+shift + ctrl + alt - z : yabai -m space --move prev; \
+                         echo "b" > $YABAI_LAST_DIRECTION &;
+
+#---move spaces between displays---
+ shift + ctrl + alt - v : yabai -m space --display $(next_display_or_space_looping -f -d) --focus
+ shift + ctrl + alt - c : yabai -m space --display $(next_display_or_space_looping -b -d) --focus
+
+
+#---despawn spaces---
+ctrl + alt - m : destroy_space_and_refocus
+ctrl + alt - n : destroy_space_and_refocus -x
+
+
+#---create space left--- 
+# (0x2F - ">" | 0x2B - "<")
+ctrl + alt - 0x2F : make_new_space_right; \
+                    echo "f" > $YABAI_LAST_DIRECTION &;
+ctrl + alt - 0x2B : make_new_space_left; \
+                    echo "b" > $YABAI_LAST_DIRECTION &;
+
+#---cycle displays---
+shift + alt - 0x2F : rotate_displays -f
+shift + alt - 0x2B : rotate_displays -b
+
+#---stop and start service---
+shift + ctrl - i : yabai --start-service
+shift + ctrl - o : yabai --stop-service

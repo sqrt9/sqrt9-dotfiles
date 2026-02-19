@@ -1,0 +1,481 @@
+// Example multi command
+//
+//     "multiCommand.commands": [
+//       {
+//         "command": "multiCommand.example",
+//         "sequence": [
+//           "workbench.action.focusActiveEditorGroup",
+//           {
+//             "command": "workbench.action.openSettings",
+//             "args": "workbench.editor.showTabs"
+//           }
+//         ]
+//       }
+//     ]
+//   }
+
+//
+// Example invoking
+// {
+//     "key": "F1",
+//     "command": "extension.multiCommand.execute",
+//     "args": { "command": "multiCommand.down3Lines" },
+//     "when": "editorTextFocus"
+// }
+
+{
+  //yes, we code in the home directory. Get over it!!!!
+  "files.watcherExclude": {
+    "**/.vscode-test.{js,mjs,cjs}" : true,
+    "${env:HOME}/Library/**" : true,
+    "${env:HOME}/Music/**" : true,
+    "${env:HOME}/Pictures/**" : true,
+    "${env:HOME}/Movies/**" : true,
+    "${env:HOME}/Jagex/**" : true,
+    "${env:HOME}/VulkanSDK/**" : true,
+    "${env:HOME}/Documents/**" : true,
+    "${env:HOME}/wineprefix64/**" : true,
+    "${env:HOME}/.opam/**" : true,
+    "${env:HOME}/.wine/**" : true,
+    "${env:HOME}/.cache/**" : true,
+    "${env:HOME}/Virtual Machines.localized/**" : true,
+  },
+  
+  "search.exclude": {
+    "**/.vscode-test.{js,mjs,cjs}" : true,
+    "${env:HOME}/Library/**" : true,
+    "${env:HOME}/Music/**" : true,
+    "${env:HOME}/Pictures/**" : true,
+    "${env:HOME}/Movies/**" : true,
+    "${env:HOME}/Jagex/**" : true,
+    "${env:HOME}//**" : true,
+    "${env:HOME}/VulkanSDK/**" : true,
+    "${env:HOME}/Documents/**" : true,
+    "${env:HOME}/wineprefix64/**" : true,
+    "${env:HOME}/.opam/**" : true,
+    "${env:HOME}/.wine/**" : true,
+    "${env:HOME}/.cache/**" : true,
+    "${env:HOME}/Virtual Machines.localized/**" : true,
+  },
+
+
+  "telemetry.telemetryLevel": "off",
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.lookUp7",
+      "sequence": [
+        "cursorMove",
+        { "to": "up", "by": "line", "value": 7, "select": false, "view": true },
+      ],
+    },
+    {
+      "command": "multiCommand.lookDown7",
+      "sequence": [
+        "cursorMove",
+        {
+          "to": "down",
+          "by": "line",
+          "value": 7,
+          "select": false,
+          "view": true,
+        },
+      ],
+    },
+
+    {
+      "command": "multiCommand.togglePanel",
+      "sequence": [
+        { "command": "trackmaximizedpanel.minimize" },
+        { "command": "workbench.action.togglePanel" },
+      ],
+    },
+    {
+      "command": "multiCommand.toggleSidebarAndTabsAndMiniMap",
+      "sequence": [
+        "workbench.action.toggleSidebarVisibility",
+        {
+          //find reference at top of keybindings.json
+          "command": "toggle",
+          "args": {
+            "id": "minimap",
+            "value": [
+              {
+                "editor.minimap.enabled": true,
+              },
+              {
+                "editor.minimap.enabled": false,
+              },
+            ],
+          },
+        },
+        {
+          "command": "toggle",
+          "args": {
+            "id": "tabs",
+            "value": [
+              {
+                "workbench.editor.showTabs": true,
+              },
+              {
+                "workbench.editor.showTabs": false,
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      "command": "multiCommand.newBlankEditorRight",
+      "sequence": [
+        { "command": "workbench.action.splitEditorRight" },
+        { "command": "workbench.action.closeActiveEditor" },
+      ],
+    },
+    {
+      "command": "multiCommand.newBlankEditorBelow",
+      "sequence": [
+        { "command": "workbench.action.splitEditorDown" },
+        { "command": "workbench.action.closeActiveEditor" },
+      ],
+    },
+
+    {
+      "command": "multiCommand.scrollDown7",
+      "sequence": [
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+        "cursorDown",
+      ],
+    },
+    {
+      "command": "multiCommand.scrollUp7",
+      "sequence": [
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+        "cursorUp",
+      ],
+    },
+
+    {
+      "command": "multiCommand.lookDown7",
+      "sequence": [
+        {
+          "command": "editorScroll",
+          "args": { "to": "down", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "down", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "down", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "down", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "down", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "down", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "down", "by": "line", "revealCursor": false },
+        },
+      ],
+    },
+    {
+      "command": "multiCommand.lookUp7",
+      "sequence": [
+        {
+          "command": "editorScroll",
+          "args": { "to": "up", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "up", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "up", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "up", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "up", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "up", "by": "line", "revealCursor": false },
+        },
+        {
+          "command": "editorScroll",
+          "args": { "to": "up", "by": "line", "revealCursor": false },
+        },
+      ],
+    },
+    {
+      "command": "multiCommand.previousPanelView",
+      "sequence": [
+        "workbench.action.focusPanel",
+        "workbench.action.previousPanelView",
+      ],
+    },
+    {
+      "command": "multiCommand.moveTerminalToNextGroup",
+      "sequence": [
+        "workbench.action.terminal.moveToEditor",
+        "workbench.action.moveEditorToNextGroup",
+      ],
+    },
+    {
+      "command": "multiCommand.makeTerminalInEditorGroup",
+      "sequence": [
+        "workbench.action.terminal.new",
+        "workbench.action.terminal.moveToEditor",
+        "workbench.action.moveEditorToLastGroup",
+      ],
+    },
+  ],
+
+  //terminal commands that skip / are sent to / the shell
+  "terminal.integrated.commandsToSkipShell": [
+    //"this.command.is.sent",
+    //"-this.command.is.not",
+    "multiCommand.togglePanel",
+  ],
+  "problems.autoReveal": true,
+  "editor.hover.enabled": "on",
+  "find-it-faster.general.killTerminalAfterUse": true,
+  "find-it-faster.general.useTerminalInEditor": true,
+  "editor.stickyTabStops": true,
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingDelete": "always",
+  "editor.autoClosingOvertype": "always",
+  "editor.autoSurround": "languageDefined",
+  "vscode_custom_css.imports": ["file:////Users/hpt/.vscode/style.css"],
+  "workbench.editor.closeEmptyGroups": false,
+  "editor.codeActionsOnSave": {},
+  "python.createEnvironment.trigger": "off",
+  "update.mode": "manual",
+  "editor.glyphMargin": false,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.cursorStyle": "block",
+  "editor.fontSize": 17,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.renderLineHighlight": "all",
+  "workbench.settings.applyToAllProfiles": ["editor.fontFamily"],
+  "workbench.editorAssociations": {
+    "*.pdf": "pdf.preview",
+  },
+  "explorer.confirmDelete": false,
+  "workbench.colorTheme": "theme",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.preferredDarkColorTheme": "Default High Contrast",
+  "workbench.colorCustomizations": {
+    //     "editor.lineHighlightBackground": "#ffffdd10",
+    "editor.lineHighlightBorder": "#00000000",
+    //     "editor.selectionBackground": "#0011ff",
+    //     "editor.background": "#303030",
+    //     "editor.wordHighlightTextBackground": "#ffffff36",
+    //     "terminal.background": "#00000000",
+    // "titleBar.activeBackground": "#303030",
+    // "titleBar.inactiveBackground": "#303030",
+    // "titleBar.activeForeground": "#303030",
+    // "titleBar.inactiveForeground": "#303030",
+    // "tab.inactiveBackground": "#303030",s
+    // "tab.activeBackground": "#404040",
+    // "tab.hoverBackground": "#404040",
+    // "editorGroupHeader.tabsBackground": "#303030",
+    // "quickInput.foreground": "#ffffff",
+    // "quickInputTitle.background": "#ff0000",
+    "editorStickyScroll.shadow": "#cccccc",
+    "editorCursor.foreground": "#cccccc",
+    "editorCursor.background": "#282828",
+    "editorBracketHighlight.foreground1": "#aaaaaa",
+    "editorBracketHighlight.foreground2": "#eeeeee",
+    "editorBracketHighlight.foreground3": "#aaaaaa",
+    "editorBracketHighlight.foreground4": "#eeeeee",
+    "editorBracketHighlight.foreground5": "#aaaaaa",
+    "editorBracketHighlight.foreground6": "#eeeeee",
+    "editorLineNumber.activeForeground": "#ffffff",
+    "editorGutter.border": "#33333300",
+    "editorOverviewRuler.background": "#282828",
+    "editorSuggestWidget.border": "#EEB4FB",
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "entity.name.tag.html",
+        "settings": {
+          "foreground": "#EEB4FB",
+        },
+      },
+      {
+        "scope": "meta.structure.dictionary.value.json.comments",
+        "settings": {
+          "foreground": "#F8DBFD",
+        },
+      },
+      {
+        "scope": "support.type.property-name.json.comments",
+        "settings": {
+          "foreground": "#EEB4FB",
+        },
+      },
+    ],
+  },
+
+  "workbench.sideBar.location": "right",
+  "editor.guides.indentation": false,
+  "terminal.integrated.fontFamily": "Comic Shanns",
+  "git.openRepositoryInParentFolders": "always",
+  "editor.renderWhitespace": "none",
+  "terminal.integrated.fontSize": 15,
+  "workbench.activityBar.location": "hidden",
+  "zenMode.showTabs": "none",
+  "terminal.integrated.gpuAcceleration": "off",
+  "window.systemColorTheme": "dark",
+  "window.autoDetectColorScheme": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.focusAfterRun": "terminal",
+  "latex-workshop.texcount.path": "/Library/TeX/texbin/texcount",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "/Library/TeX/texbin/latexmk",
+      "args": [
+        "-xelatex",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-gg",
+        "-outdir=%OUTDIR%",
+        "%DOC%",
+      ],
+      "env": {},
+    },
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%",
+      ],
+      "env": {},
+    },
+    {
+      "name": "xelatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-xelatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%",
+      ],
+      "env": {},
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": ["%DOC%"],
+      "env": {},
+    },
+    {
+      "name": "pdflatex",
+      "command": "/Library/TeX/texbin/pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%",
+      ],
+      "env": {},
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"],
+      "env": {},
+    },
+    {
+      "name": "rnw2tex",
+      "command": "Rscript",
+      "args": [
+        "-e",
+        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')",
+      ],
+      "env": {},
+    },
+    {
+      "name": "jnw2tex",
+      "command": "julia",
+      "args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
+      "env": {},
+    },
+    {
+      "name": "jnw2texminted",
+      "command": "julia",
+      "args": [
+        "-e",
+        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")",
+      ],
+      "env": {},
+    },
+    {
+      "name": "pnw2tex",
+      "command": "pweave",
+      "args": ["-f", "tex", "%DOC_EXT%"],
+      "env": {},
+    },
+    {
+      "name": "pnw2texminted",
+      "command": "pweave",
+      "args": ["-f", "texminted", "%DOC_EXT%"],
+      "env": {},
+    },
+    {
+      "name": "tectonic",
+      "command": "tectonic",
+      "args": ["--synctex", "--keep-logs", "--print", "%DOC%.tex"],
+      "env": {},
+    },
+  ],
+  "latex-workshop.latex.recipe.default": "lastUsed",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "editor.minimap.enabled": true,
+  "workbench.editor.showTabs": "multiple",
+  "terminal.integrated.initialHint": false,
+  "[html]": {
+    "breadcrumbs.showClasses": true,
+    "editor.suggest.insertMode": "replace",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+}
