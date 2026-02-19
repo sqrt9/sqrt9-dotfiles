@@ -1,0 +1,11 @@
+dotfiles for various programs
+- karabiner elements
+- yabai
+- skhd
+- vscode
+- emacs
+- zshrc
+- zshenv
+- tmux
+- fonts
+- iterm2
