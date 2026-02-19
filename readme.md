@@ -10,3 +10,5 @@ dotfiles for various programs
 - iterm2
 
 * random fonts
+
+emacs is forestalled because it's 300 lines of slop
