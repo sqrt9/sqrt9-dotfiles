@@ -22,7 +22,7 @@ import ast
 # swap OOO displays first to enforce 2)
 # shift spaces on boundaries depending on their next pos for 4)
 # run focus on face displays passed as arg for 1)
-# run focus on original display for 3)
+# run focus on original display passed as arg for 3)
 # 
 
 def tag(arr):
