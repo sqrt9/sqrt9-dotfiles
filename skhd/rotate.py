@@ -2,6 +2,28 @@ import copy
 import argparse
 import ast
 
+#
+#
+# by theo
+#
+#
+
+
+#
+# generate a list of yabai commands to carousel monitors
+# 1) keep top space on display consistent
+# 2) keep one space on each display at all times
+# 3) keep focus on called display
+# 4) keep display space order consistent
+#
+# the following is done in order
+# space tags are overriden to pass identifying messages regardless of state
+# a flattened target order is generated
+# swap OOO displays first to enforce 2)
+# shift spaces on boundaries depending on their next pos for 4)
+# run focus on face displays passed as arg for 1)
+# run focus on original display for 3)
+# 
 
 def tag(arr):
     """Give every space a label to focus
