@@ -7,7 +7,7 @@
 
 #---rotate, toggle float, balance windows, opacity---
 shift + alt - r : yabai -m space --rotate 270
-shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2 --layer below
 shift + alt - f : yabai -m config layout | grep -q "bsp" && yabai -m config layout float || yabai -m config layout bsp
 shift + alt - e : yabai -m space --balance
 ctrl + alt - p : transparency_increment 0.1 inc
@@ -72,8 +72,8 @@ shift + ctrl + alt - z : yabai -m space --move prev; \
                          echo "b" > $YABAI_LAST_DIRECTION &;
 
 #---move spaces between displays---
- shift + ctrl + alt - v : yabai -m space --display $(next_display_or_space_looping -f -d) --focus
- shift + ctrl + alt - c : yabai -m space --display $(next_display_or_space_looping -b -d) --focus
+shift + ctrl + alt - v : yabai -m space --display $(next_display_or_space_looping -f -d) --focus
+shift + ctrl + alt - c : yabai -m space --display $(next_display_or_space_looping -b -d) --focus
 
 
 #---despawn spaces---
