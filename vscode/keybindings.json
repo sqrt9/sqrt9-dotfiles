@@ -1,3 +1,5 @@
+
+//
 // Place your key bindings in this file to override the defaults
 //  Example Toggle
 // {
@@ -191,24 +193,24 @@
   {
     "key": "cmd+t",
     "command": "multiCommand.makeTerminalInEditorGroup",
-    "when": "terminalEditorFocus",
+    "when": "terminalEditorFocus"
   },
   {
     "key": "cmd+shift+o",
-    "command": "workbench.action.moveEditorToPreviousGroup",
+    "command": "workbench.action.moveEditorToPreviousGroup"
   },
   {
     "key": "cmd+o",
-    "command": "workbench.action.moveEditorToNextGroup",
+    "command": "workbench.action.moveEditorToNextGroup"
+  },
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.moveEditorGroupToNewWindow"
   },
   {
     "key": "cmd+p",
     "command": "workbench.action.moveEditorGroupToNewWindow",
-  },
-  {
-    "key": "cmd+p",
-    "command": "workbench.action.moveEditorGroupToNewWindow",
-    "when": "terminalEditorFocus",
+    "when": "terminalEditorFocus"
   },
   {
     "key": "cmd+p",
@@ -346,6 +348,14 @@
     "command": "workbench.action.previousPanelView",
   },
   {
+    "key": "ctrl+p",
+    "command": "editor.action.marker.next",
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "editor.action.marker.prev",
+  },
+  {
     "key": "cmd+shift+2",
     "command": "workbench.action.moveEditorRightInGroup",
   },
@@ -391,17 +401,54 @@
     "key": "ctrl+k",
     "command": "multiCommand.lookDown7",
   },
-
+    {
+    "key": "ctrl+a",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": ["editor.action.wordHighlight.prev"],
+    },
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+a",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": ["editor.action.previousMatchFindAction"],
+    },
+    "when": "findWidgetVisible && findInputFocussed",
+  },
+  {
+    "key": "ctrl+d",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": ["editor.action.wordHighlight.next"],
+    },
+    "when": "editorTextFocus"
+  },
   {
     "key": "ctrl+d",
     "command": "extension.multiCommand.execute",
     "args": {
       "sequence": ["editor.action.nextMatchFindAction"],
     },
-    "when": "editorTextFocus",
+    "when": "findWidgetVisible && findInputFocussed",
   },
   {
-    "key": "ctrl+a",
+    "key": "escape",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+                  {
+            "command": "editor.actions.findWithArgs",
+            "args"   : { "searchString": "" }
+          },
+          "closeFindWidget"
+      ]
+    },
+    "when": "findWidgetVisible && findInputFocussed" 
+  },
+  {
+    "key": "ctrl+f",
     "command": "vscode-better-align.align"
   },
   {

@@ -38,7 +38,7 @@
     "${env:HOME}/.opam/**" : true,
     "${env:HOME}/.wine/**" : true,
     "${env:HOME}/.cache/**" : true,
-    "${env:HOME}/Virtual Machines.localized/**" : true,
+    "${env:HOME}/Virtual Machines.localized/**" : true
   },
   
   "search.exclude": {
@@ -55,7 +55,7 @@
     "${env:HOME}/.opam/**" : true,
     "${env:HOME}/.wine/**" : true,
     "${env:HOME}/.cache/**" : true,
-    "${env:HOME}/Virtual Machines.localized/**" : true,
+    "${env:HOME}/Virtual Machines.localized/**" : true
   },
 
 
@@ -65,8 +65,8 @@
       "command": "multiCommand.lookUp7",
       "sequence": [
         "cursorMove",
-        { "to": "up", "by": "line", "value": 7, "select": false, "view": true },
-      ],
+        { "to": "up", "by": "line", "value": 7, "select": false, "view": true }
+      ]
     },
     {
       "command": "multiCommand.lookDown7",
@@ -77,17 +77,17 @@
           "by": "line",
           "value": 7,
           "select": false,
-          "view": true,
-        },
-      ],
+          "view": true
+        }
+      ]
     },
 
     {
       "command": "multiCommand.togglePanel",
       "sequence": [
         { "command": "trackmaximizedpanel.minimize" },
-        { "command": "workbench.action.togglePanel" },
-      ],
+        { "command": "workbench.action.togglePanel" }
+      ]
     },
     {
       "command": "multiCommand.toggleSidebarAndTabsAndMiniMap",
@@ -100,13 +100,13 @@
             "id": "minimap",
             "value": [
               {
-                "editor.minimap.enabled": true,
+                "editor.minimap.enabled": true
               },
               {
-                "editor.minimap.enabled": false,
-              },
-            ],
-          },
+                "editor.minimap.enabled": false
+              }
+            ]
+          }
         },
         {
           "command": "toggle",
@@ -114,29 +114,29 @@
             "id": "tabs",
             "value": [
               {
-                "workbench.editor.showTabs": true,
+                "workbench.editor.showTabs": true
               },
               {
-                "workbench.editor.showTabs": false,
-              },
-            ],
-          },
-        },
-      ],
+                "workbench.editor.showTabs": false
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "command": "multiCommand.newBlankEditorRight",
       "sequence": [
         { "command": "workbench.action.splitEditorRight" },
-        { "command": "workbench.action.closeActiveEditor" },
-      ],
+        { "command": "workbench.action.closeActiveEditor" }
+      ]
     },
     {
       "command": "multiCommand.newBlankEditorBelow",
       "sequence": [
         { "command": "workbench.action.splitEditorDown" },
-        { "command": "workbench.action.closeActiveEditor" },
-      ],
+        { "command": "workbench.action.closeActiveEditor" }
+      ]
     },
 
     {
@@ -148,8 +148,8 @@
         "cursorDown",
         "cursorDown",
         "cursorDown",
-        "cursorDown",
-      ],
+        "cursorDown"
+      ]
     },
     {
       "command": "multiCommand.scrollUp7",
@@ -160,8 +160,8 @@
         "cursorUp",
         "cursorUp",
         "cursorUp",
-        "cursorUp",
-      ],
+        "cursorUp"
+      ]
     },
 
     {
@@ -169,96 +169,96 @@
       "sequence": [
         {
           "command": "editorScroll",
-          "args": { "to": "down", "by": "line", "revealCursor": false },
+          "args": { "to": "down", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "down", "by": "line", "revealCursor": false },
+          "args": { "to": "down", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "down", "by": "line", "revealCursor": false },
+          "args": { "to": "down", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "down", "by": "line", "revealCursor": false },
+          "args": { "to": "down", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "down", "by": "line", "revealCursor": false },
+          "args": { "to": "down", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "down", "by": "line", "revealCursor": false },
+          "args": { "to": "down", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "down", "by": "line", "revealCursor": false },
-        },
-      ],
+          "args": { "to": "down", "by": "line", "revealCursor": false }
+        }
+      ]
     },
     {
       "command": "multiCommand.lookUp7",
       "sequence": [
         {
           "command": "editorScroll",
-          "args": { "to": "up", "by": "line", "revealCursor": false },
+          "args": { "to": "up", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "up", "by": "line", "revealCursor": false },
+          "args": { "to": "up", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "up", "by": "line", "revealCursor": false },
+          "args": { "to": "up", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "up", "by": "line", "revealCursor": false },
+          "args": { "to": "up", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "up", "by": "line", "revealCursor": false },
+          "args": { "to": "up", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "up", "by": "line", "revealCursor": false },
+          "args": { "to": "up", "by": "line", "revealCursor": false }
         },
         {
           "command": "editorScroll",
-          "args": { "to": "up", "by": "line", "revealCursor": false },
-        },
-      ],
+          "args": { "to": "up", "by": "line", "revealCursor": false }
+        }
+      ]
     },
     {
       "command": "multiCommand.previousPanelView",
       "sequence": [
         "workbench.action.focusPanel",
-        "workbench.action.previousPanelView",
-      ],
+        "workbench.action.previousPanelView"
+      ]
     },
     {
       "command": "multiCommand.moveTerminalToNextGroup",
       "sequence": [
         "workbench.action.terminal.moveToEditor",
-        "workbench.action.moveEditorToNextGroup",
-      ],
+        "workbench.action.moveEditorToNextGroup"
+      ]
     },
     {
       "command": "multiCommand.makeTerminalInEditorGroup",
       "sequence": [
         "workbench.action.terminal.new",
         "workbench.action.terminal.moveToEditor",
-        "workbench.action.moveEditorToLastGroup",
-      ],
-    },
+        "workbench.action.moveEditorToLastGroup"
+      ]
+    }
   ],
 
   //terminal commands that skip / are sent to / the shell
   "terminal.integrated.commandsToSkipShell": [
     //"this.command.is.sent",
     //"-this.command.is.not",
-    "multiCommand.togglePanel",
+    "multiCommand.togglePanel"
   ],
   "problems.autoReveal": true,
   "editor.hover.enabled": "on",
@@ -266,6 +266,7 @@
   "find-it-faster.general.useTerminalInEditor": true,
   "editor.stickyTabStops": true,
   "editor.autoClosingBrackets": "always",
+  "editor.surroundingPairs.enabled": "true",
   "editor.autoClosingQuotes": "always",
   "editor.autoClosingDelete": "always",
   "editor.autoClosingOvertype": "always",
@@ -284,8 +285,43 @@
   "editor.renderLineHighlight": "all",
   "workbench.settings.applyToAllProfiles": ["editor.fontFamily"],
   "workbench.editorAssociations": {
-    "*.pdf": "pdf.preview",
+    "*.pdf": "pdf.preview"
   },
+  //assume shell script in file without extension
+  //yes. this is really how you have to do it.
+  //https://stackoverflow.com/questions/50259434/vscode-associating-a-file-without-extension-to-xml
+  "files.associations": {
+    "[!.]": "shellscript",
+    "[!.][!.]": "shellscript",
+    "[!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+    "[!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.][!.]": "shellscript",
+},
   "explorer.confirmDelete": false,
   "workbench.colorTheme": "theme",
   "security.workspace.trust.untrustedFiles": "open",
@@ -319,29 +355,53 @@
     "editorLineNumber.activeForeground": "#ffffff",
     "editorGutter.border": "#33333300",
     "editorOverviewRuler.background": "#282828",
-    "editorSuggestWidget.border": "#EEB4FB",
+    "editorSuggestWidget.border": "#EEB4FB"
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
+        "scope": "punctuation.definition.comment.shell",
+        "settings": {
+          "foreground": "#ffffff"
+        }
+      },
+      {
+        "scope": "punctuation.definition.string.begin.python",
+        "settings": {
+          "foreground": "#ffffff"
+        }
+      },
+      {
+        "scope": "punctuation.definition.string.end.python",
+        "settings": {
+          "foreground": "#ffffff"
+        }
+      },
+      {
+        "scope": "comment",
+        "settings": {
+          "foreground": "#ffffff"
+        } 
+      },
+      {
         "scope": "entity.name.tag.html",
         "settings": {
-          "foreground": "#EEB4FB",
-        },
+          "foreground": "#EEB4FB"
+        }
       },
       {
         "scope": "meta.structure.dictionary.value.json.comments",
         "settings": {
-          "foreground": "#F8DBFD",
-        },
+          "foreground": "#F8DBFD"
+        }
       },
       {
         "scope": "support.type.property-name.json.comments",
         "settings": {
-          "foreground": "#EEB4FB",
-        },
-      },
-    ],
+          "foreground": "#EEB4FB"
+        }
+      }
+    ]
   },
 
   "workbench.sideBar.location": "right",
@@ -369,9 +429,9 @@
         "-pdf",
         "-gg",
         "-outdir=%OUTDIR%",
-        "%DOC%",
+        "%DOC%"
       ],
-      "env": {},
+      "env": {}
     },
     {
       "name": "lualatexmk",
@@ -382,9 +442,9 @@
         "-file-line-error",
         "-lualatex",
         "-outdir=%OUTDIR%",
-        "%DOC%",
+        "%DOC%"
       ],
-      "env": {},
+      "env": {}
     },
     {
       "name": "xelatexmk",
@@ -395,15 +455,15 @@
         "-file-line-error",
         "-xelatex",
         "-outdir=%OUTDIR%",
-        "%DOC%",
+        "%DOC%"
       ],
-      "env": {},
+      "env": {}
     },
     {
       "name": "latexmk_rconly",
       "command": "latexmk",
       "args": ["%DOC%"],
-      "env": {},
+      "env": {}
     },
     {
       "name": "pdflatex",
@@ -412,58 +472,58 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "%DOC%",
+        "%DOC%"
       ],
-      "env": {},
+      "env": {}
     },
     {
       "name": "bibtex",
       "command": "bibtex",
       "args": ["%DOCFILE%"],
-      "env": {},
+      "env": {}
     },
     {
       "name": "rnw2tex",
       "command": "Rscript",
       "args": [
         "-e",
-        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')",
+        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
       ],
-      "env": {},
+      "env": {}
     },
     {
       "name": "jnw2tex",
       "command": "julia",
       "args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
-      "env": {},
+      "env": {}
     },
     {
       "name": "jnw2texminted",
       "command": "julia",
       "args": [
         "-e",
-        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")",
+        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
       ],
-      "env": {},
+      "env": {}
     },
     {
       "name": "pnw2tex",
       "command": "pweave",
       "args": ["-f", "tex", "%DOC_EXT%"],
-      "env": {},
+      "env": {}
     },
     {
       "name": "pnw2texminted",
       "command": "pweave",
       "args": ["-f", "texminted", "%DOC_EXT%"],
-      "env": {},
+      "env": {}
     },
     {
       "name": "tectonic",
       "command": "tectonic",
       "args": ["--synctex", "--keep-logs", "--print", "%DOC%.tex"],
-      "env": {},
-    },
+      "env": {}
+    }
   ],
   "latex-workshop.latex.recipe.default": "lastUsed",
   "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
@@ -473,9 +533,9 @@
   "terminal.integrated.initialHint": false,
   "[html]": {
     "breadcrumbs.showClasses": true,
-    "editor.suggest.insertMode": "replace",
+    "editor.suggest.insertMode": "replace"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

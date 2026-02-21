@@ -5,8 +5,24 @@
 #
 
 
-local YABAI_LAST_DIRECTION=/Users/$USER/.config/yabai/dir
+YABAI_LAST_DIRECTION=/Users/$USER/.config/yabai/dir
+SKHD_WINDOW_OPACITY=/Users/$USER/.config/skhd/trans
 
+transparency_increment() {
+    #$1 := float
+    #$2 := "inc" | "dec"
+
+    read -r opacity < "$SKHD_WINDOW_OPACITY"
+    if [[ $2 == "inc" ]]; then
+        new=$(echo "scale=2; x=$opacity; y=0.1; x=x+y; if(x>1.0) x=1.0; x" | bc)
+    else
+        new=$(echo "scale=2; x=$opacity; y=0.1; x=x-y; if(x<0.0) x=0.0; x" | bc)
+    fi
+     
+    yabai -m config active_window_opacity $new
+    yabai -m config normal_window_opacity $new
+    print $new > $SKHD_WINDOW_OPACITY
+}
 
 make_new_space_left() {
     yabai -m space --create
@@ -54,6 +70,7 @@ next_display_or_space_looping() {
     #$3 := int              (optional display or space mission control index)
     local direction=$1
     local op=$2
+    local idx=$3
 
     if [[ $op == "-d" ]]; then
         local arr_json=$(yabai -m query --displays | jq -c '[.[].index]')
@@ -64,23 +81,23 @@ next_display_or_space_looping() {
     fi
 
     local arr=(${(s:,:)${arr_json[2,-2]}})
-    local len=${#arr}
+    local len=${#arr[@]}
     local last=${arr[-1]}
     local first=${arr[1]}
 
-    if [[ -v 3 ]]; then
+    if [[ ! -v idx ]]; then
         mcidx=$3
-    fi
+    fi 
 
-    for ((i=1; i<=len; i++)); do
-        if [[ "${arr[$i]}" == "$mcidx" ]]; then
-            local pos=$i
+    for (( i = 1; i <= len; i++ )); do
+        if (( ${arr[i]} == mcidx )); then
+            pos=$i
             break
         fi
     done
 
     if [[ "$len" == "1" ]]; then
-        next="$first"
+        print "$mcidx"
     elif [[ "$len" == "$pos" && "$direction" == "-f" ]]; then
         next="$first"
     elif [[ "$pos" == "1" && "$direction" == "-b" ]]; then
@@ -92,6 +109,7 @@ next_display_or_space_looping() {
             next="$(( mcidx - 1 ))"
         fi
     fi
+
     print "$next"
 }
 
@@ -101,7 +119,7 @@ destroy_space_and_refocus() {
     local direction=-$(<"$YABAI_LAST_DIRECTION")
     local arr_json=$(yabai -m query --displays --display | jq -c '.spaces')
     local arr_pre=(${(s:,:)${arr_json[2,-2]}})
-    local len=${#arr_pre}
+    local len=${#arr_pre[@]}
 
     for ((i=1; i<=len; i++)); do
         if [[ "${arr_pre[$i]}" == "$mcidx" ]]; then
@@ -110,7 +128,7 @@ destroy_space_and_refocus() {
         fi
     done
 
-    for i in {1..$#arr_pre}; do
+    for i in {1..$len}; do
         if (( i == mcidx )); then
             continue
         elif (( i > mcidx )); then

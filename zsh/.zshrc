@@ -128,7 +128,7 @@ export VULKAN_SDK=/opt/homebrew/opt/vulkan-sdk/lib/vulkan
 export PATH=$VULKAN_SDK/bin:$PATH
 export WINEDLLOVERRIDES="d3d11=n;dxgi=n"
 export DYLD_LIBRARY_PATH=$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH
-alias ls="eza -lah"
+alias ls="eza -liahmUH --icons=never"
 alias brewupdate='brew update && brew upgrade && brew upgrade --formula && brew upgrade --cask && brew cleanup'
 alias xattr="/usr/bin/xattr"
 alias emacsweb="ttyd --writable --port 7681 emacs -nw"
