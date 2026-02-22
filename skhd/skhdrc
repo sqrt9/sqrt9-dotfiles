@@ -7,7 +7,7 @@
 
 #---rotate, toggle float, balance windows, opacity---
 shift + alt - r : yabai -m space --rotate 270
-shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2 --layer below
+shift + alt - t : yabai -m window --toggle float --layer below
 shift + alt - f : yabai -m config layout | grep -q "bsp" && yabai -m config layout float || yabai -m config layout bsp
 shift + alt - e : yabai -m space --balance
 ctrl + alt - p : transparency_increment 0.1 inc
