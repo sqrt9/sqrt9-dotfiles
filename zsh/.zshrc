@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/hpt/completions:"* ]]; then export FPATH="/Users/hpt/completions:$FPATH"; fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 
 # Initialization code that may require console input (password prompts, [y/n]
@@ -471,3 +473,7 @@ vterm_printf() {
 # Added by zshellcheck installer
 fpath+=(/Users/hpt/.local/share/zsh/site-functions)
 export FZF_DEFAULT_COMMAND='fd'
+. "/Users/hpt/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
