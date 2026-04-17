@@ -222,31 +222,31 @@
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus && !terminalEditorFocus",
   },
-  {
-    "key": "cmd+9",
+ {
+    "key": "ctrl+cmd+1",
     "command": "workbench.action.previousEditorInGroup", // when in editor or elsewhere
   },
   {
-    "key": "cmd+9",
+    "key": "ctrl+cmd+1",
     "command": "workbench.action.previousEditorInGroup", // when in editor tab terminal
     "when": "terminalEditorFocus",
   },
   {
-    "key": "cmd+9",
+    "key": "ctrl+cmd+1",
     "command": "workbench.action.terminal.focusPrevious", // when in panel terminal
     "when": "terminalFocus && !terminalEditorFocus",
   },
   {
-    "key": "cmd+0",
+    "key": "ctrl+cmd+2",
     "command": "workbench.action.nextEditorInGroup", // when in editor or elsewhere
   },
   {
-    "key": "cmd+0",
+    "key": "ctrl+cmd+2",
     "command": "workbench.action.nextEditorInGroup", //when in editor tab terminal
     "when": "terminalEditorFocus",
   },
   {
-    "key": "cmd+0",
+    "key": "ctrl+cmd+2",
     "command": "workbench.action.terminal.focusNext", //when in panel terminal
     "when": "terminalFocus && !terminalEditorFocus",
   },

@@ -7,12 +7,15 @@
 
 YABAI_LAST_DIRECTION=/Users/$USER/.config/yabai/dir
 SKHD_WINDOW_OPACITY=/Users/$USER/.config/skhd/trans
+YABAI_STATE_ONE=/Users/$USER/.config/skhd/win1
+YABAI_STATE_TWO=/Users/$USER/.config/skhd/win2
+YABAI_STATE_THREE=/Users/$USER/.config/skhd/win3
 
 transparency_increment() {
     #$1 := float
     #$2 := "inc" | "dec"
 
-    read -r opacity < "$SKHD_WINDOW_OPACITY"
+    read -r opacity < $SKHD_WINDOW_OPACITY
     if [[ $2 == "inc" ]]; then
         new=$(echo "scale=2; x=$opacity; y=0.1; x=x+y; if(x>1.0) x=1.0; x" | bc)
     else

@@ -408,13 +408,14 @@ echo
 #silly=1
 
 last -3
-if [[ $(lsof -i :7681) ]]; then
-    printf 'emacs daemon running @ \e]8;;http://localhost:7681\e\\http://localhost:7681\e]8;;\e\\\n'
-else
-    printf 'starting emacs on ttyd'
-    emacsweb &! 2>/dev/null #bg, disown and silence
-    printf 'emacs started @ \e]8;;http://localhost:7681\e\\http://localhost:7681\e]8;;\e\\\n'
-fi
+
+#if [[ $(lsof -i :7681) ]]; then
+#    printf 'emacs daemon running @ \e]8;;http://localhost:7681\e\\http://localhost:7681\e]8;;\e\\\n'
+#else
+#    printf 'starting emacs on ttyd'
+#    emacsweb &! 2>/dev/null #bg, disown and silence
+#    printf 'emacs started @ \e]8;;http://localhost:7681\e\\http://localhost:7681\e]8;;\e\\\n'
+#fi
 
 if [[ $(lsof -i :7682) ]]; then
     printf 'connect to this terminal @ \e]8;;http://localhost:7682\e\\http://localhost:7682\e]8;;\e\\\n'
@@ -422,6 +423,8 @@ else
     termweb &! 2>/dev/null 
     printf 'zsh started @ @ \e]8;;http://localhost:7682\e\\http://localhost:7682\e]8;;\e\\\n'
 fi
+
+
 
 if [ "$silly" -ge 1 ]; then
 echo " | |__   __ _| |_ _ __ ___   __ _ _ __  "
@@ -453,7 +456,7 @@ bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+#sudo yabai --load-sa
 
 
 vterm_printf() {
