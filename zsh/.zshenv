@@ -74,6 +74,7 @@ next_display_or_space_looping() {
     local direction=$1
     local op=$2
     local idx=$3
+    local pos=0
 
     if [[ $op == "-d" ]]; then
         local arr_json=$(yabai -m query --displays | jq -c '[.[].index]')
@@ -88,7 +89,7 @@ next_display_or_space_looping() {
     local last=${arr[-1]}
     local first=${arr[1]}
 
-    if [[ ! -v idx ]]; then
+    if [[ -n $idx ]]; then
         mcidx=$3
     fi 
 

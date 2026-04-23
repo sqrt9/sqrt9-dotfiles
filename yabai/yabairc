@@ -20,7 +20,7 @@
 yabai -m config layout bsp
 
 #---swap windows when dropped in center
-yabai -m config menubar_opacity 0.8
+yabai -m config menubar_opacity 1
 
 #---focus follows mouse, mouse follows focus, automatically raise windows
 yabai -m config focus_follows_mouse on
@@ -42,12 +42,24 @@ yabai -m rule --add app="^Notion$" manage=off
 yabai -m rule --add app="^LuLu$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Stickies$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
+
 yabai -m rule --add app="^Find My$" manage=off
-yabai -m rule --add app="^Facetime$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="^osascript$" manage=off
 yabai -m rule --add app="^System Events$" manage=off
 yabai -m rule --add app="^DockDoor$" manage=off
+yabai -m rule --add app="^Plash$" manage=off
+yabai -m rule --add app="^coconutBattery$" manage=off
+yabai -m rule --add app="^BetterAudio$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
+yabai -m rule --add app="^Amphetamine$" manage=off
+yabai -m rule --add app="^Thaw$" manage=off
+yabai -m rule --add app="^Boom 3D$" manage=off
+yabai -m rule --add app="^XLD$" manage=off
+yabai -m rule --add app="^Maccy$" manage=off
+yabai -m rule --add app="^AltTab$" manage=off
+
 # borders active_color=0xffcd4946 inactive_color=0x00000000 width=4.0 style=round ax_focus=on whitelist="Google Chrome,Finder,app_mode_loader,Messages,Facetime,Photos,Music,Spotify,Code,iTerm2,Books,Discord,Notes,Activity Monitor,Podcasts,Find My,Preview,Electron" &
 
 # yabai     -- blacklist
