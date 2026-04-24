@@ -5,11 +5,14 @@
 #
 
 
-YABAI_LAST_DIRECTION=/Users/$USER/.config/yabai/dir
+CLICLICK_MPOS=/Users/$USER/.config/skhd/mpos
 SKHD_WINDOW_OPACITY=/Users/$USER/.config/skhd/trans
+SKHD_CAPS_STATE=/Users/$USER/.config/skhd/caps
+YABAI_LAST_DIRECTION=/Users/$USER/.config/yabai/dir
 YABAI_STATE_ONE=/Users/$USER/.config/skhd/win1
 YABAI_STATE_TWO=/Users/$USER/.config/skhd/win2
 YABAI_STATE_THREE=/Users/$USER/.config/skhd/win3
+
 
 transparency_increment() {
     #$1 := float

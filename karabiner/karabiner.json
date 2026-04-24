@@ -5,6 +5,53 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "zoom thrice with default hotkey",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "equal_sign",
+                                    "modifiers": { "mandatory": ["left_option", "left_command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "equal_sign",
+                                        "modifiers": ["left_option", "left_command"]
+                                    },
+                                    {
+                                        "key_code": "equal_sign",
+                                        "modifiers": ["left_option", "left_command"]
+                                    },
+                                    {
+                                        "key_code": "equal_sign",
+                                        "modifiers": ["left_option", "left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "hyphen",
+                                    "modifiers": { "mandatory": ["left_option", "left_command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "hyphen",
+                                        "modifiers": ["left_option", "left_command"]
+                                    },
+                                    {
+                                        "key_code": "hyphen",
+                                        "modifiers": ["left_option", "left_command"]
+                                    },
+                                    {
+                                        "key_code": "hyphen",
+                                        "modifiers": ["left_option", "left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Cmd+1 -> Cmd+9 / Cmd+2 -> Cmd+0",
                         "manipulators": [
                             {
@@ -14,8 +61,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "9",
-                                        "modifiers": ["left_command"]
+                                        "key_code": "1",
+                                        "modifiers": ["left_command", "left_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -27,8 +74,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "0",
-                                        "modifiers": ["left_command"]
+                                        "key_code": "2",
+                                        "modifiers": ["left_command", "left_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -74,7 +121,6 @@
                     },
                     {
                         "description": "rtyfghvbnm numberpad with alt",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "description": "r -> 1",
@@ -891,7 +937,7 @@
                 },
                 {
                     "from": { "key_code": "right_option" },
-                    "to": [{ "key_code": "left_control" }]
+                    "to": [{ "key_code": "right_control" }]
                 }
             ],
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }

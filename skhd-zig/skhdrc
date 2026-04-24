@@ -5,13 +5,23 @@
 #
 
 
+#---modal bindings---
+# allow keys to be rebound while capslock is on
+# don't actually turn it on though, just the light
+:: default
+:: mode_caps
+default < f13 ; mode_caps : capslock 1;
+mode_caps < f13 ; default : capslock 0;
+
+
 #---rotate, toggle float, balance windows, opacity---
-shift + alt - r : yabai -m space --rotate 270
-shift + alt - t : yabai -m window --toggle float --layer below
-shift + alt - f : yabai -m config layout | grep -q "bsp" && yabai -m config layout float || yabai -m config layout bsp
-shift + alt - e : yabai -m space --balance
-ctrl + alt - p : transparency_increment 0.1 inc
-ctrl + alt + shift - p : transparency_increment 0.1 dec
+# (shift + alt = space controls)
+# (ctrl + alt  = window controls)
+shift + alt - r          : yabai -m space --rotate 270
+shift + alt - f          : yabai -m config layout | grep -q "bsp" && yabai -m config layout float || yabai -m config layout bsp
+ctrl  + shift - a        : yabai -m window --toggle float --layer below && yabai -m space --balance
+mode_caps < sound_up     : transparency_increment 0.1 inc
+mode_caps < sound_down   : transparency_increment 0.1 dec
 
 #---move windows around in current space---
 ctrl + alt - z : yabai -m window --warp west
@@ -34,7 +44,6 @@ shift + alt - z : yabai -m space --focus $(next_display_or_space_looping -b -s);
                   echo "b" > $YABAI_LAST_DIRECTION &;
 
 
-# shift + alt - c : yabai -m display --focus next
 shift + alt - v : yabai -m display --focus "$(next_display_or_space_looping -f -d)"
 shift + alt - c : yabai -m display --focus "$(next_display_or_space_looping -b -d)"
 
@@ -52,7 +61,7 @@ shift + ctrl - v : yabai -m window --display $(next_display_or_space_looping -f 
                    echo "f" > $YABAI_LAST_DIRECTION &;
 
 
-#---make window larger---
+#---make window larger/smaller---
 # (0x18 - "=" | 0x1B - "-")
 shift + alt - 0x18 : yabai -m window yabai --resize right:40:0; \
                      yabai -m window yabai --resize left:40:0; \
@@ -63,7 +72,6 @@ shift + alt - 0x1B : yabai -m window yabai -m window --resize right:-40:0; \
                      yabai -m window yabai -m window --resize left:-40:0; \
                      yabai -m window yabai -m window --resize bottom:-40:0; \
                      yabai -m window yabai -m window --resize top:-40:0; 
-
 
 #---move spaces---
 shift + ctrl + alt - x : yabai -m space --move next; \
@@ -92,23 +100,42 @@ ctrl + alt - 0x2B : make_new_space_left; \
 shift + alt - 0x2F : rotate_displays -f
 shift + alt - 0x2B : rotate_displays -b
 
+
 #---stop and start service---
 shift + ctrl - i : yabai --start-service
 shift + ctrl - o : yabai --stop-service
 
-0x39 : open "btt://trigger_named/?trigger_name=caps_toggle"
 
 #--save window id---
-f13 : echo $(yabai -m query --windows --window | jq -rc .id) > $YABAI_STATE_ONE; \
-      pkill -x alerter; /opt/homebrew/bin/alerter --message 'set 1' --timeout 1 &;
-f14 : echo $(yabai -m query --windows --window | jq -rc .id) > $YABAI_STATE_TWO; \
-      pkill -x alerter; /opt/homebrew/bin/alerter --message 'set 2' --timeout 1 &;
-f15 : echo $(yabai -m query --windows --window | jq -rc .id) > $YABAI_STATE_THREE; \
-      pkill -x alerter; /opt/homebrew/bin/alerter --message 'set 3' --timeout 1 &;
+mode_caps < f1 : echo $(yabai -m query --windows --window | jq -rc .id) > $YABAI_STATE_ONE; \
+                 pkill -x alerter; /opt/homebrew/bin/alerter --message 'set 1' --timeout 1 &;
+mode_caps < f2 : echo $(yabai -m query --windows --window | jq -rc .id) > $YABAI_STATE_TWO; \
+                 pkill -x alerter; /opt/homebrew/bin/alerter --message 'set 2' --timeout 1 &;
+mode_caps < f3 : echo $(yabai -m query --windows --window | jq -rc .id) > $YABAI_STATE_THREE; \
+                 pkill -x alerter; /opt/homebrew/bin/alerter --message 'set 3' --timeout 1 &;
+
 #---focus window id---
-f1 : yabai -m window --focus $(< $YABAI_STATE_ONE); \
+default < f1 : yabai -m window --focus $(< $YABAI_STATE_ONE); \
      pkill -x alerter; /opt/homebrew/bin/alerter --message '1' --timeout 1 &;
-f2 : yabai -m window --focus $(< $YABAI_STATE_TWO); \
+default < f2 : yabai -m window --focus $(< $YABAI_STATE_TWO); \
      pkill -x alerter; /opt/homebrew/bin/alerter --message '2' --timeout 1 &;
-f3 : yabai -m window --focus $(< $YABAI_STATE_THREE); \
+default < f3 : yabai -m window --focus $(< $YABAI_STATE_THREE); \
      pkill -x alerter; /opt/homebrew/bin/alerter --message '3' --timeout 1 &;
+
+
+#---space binds---
+# use number keys in caps mode to switch space by number
+mode_caps < 1 : yabai -m space --focus 1
+mode_caps < 2 : yabai -m space --focus 2
+mode_caps < 3 : yabai -m space --focus 3
+mode_caps < 4 : yabai -m space --focus 4
+mode_caps < 5 : yabai -m space --focus 5
+mode_caps < 6 : yabai -m space --focus 6
+
+
+#---mission control---
+# (move the cursor slightly after the animation to open the spaces preview)
+shift - tab : open -a "Mission Control"; \
+              cliclick m:870,50; \
+              sleep 0.25; \
+              cliclick m:870,51; \
