@@ -103,6 +103,13 @@ next_display_or_space_looping() {
         fi
     done
 
+    # debug
+    # print "len " $len
+    # print "first" $first
+    # print "last " $last
+    # print "arr " $arr
+    # print "pos " $pos
+
     if [[ "$len" == "1" ]]; then
         print "$mcidx"
     elif [[ "$len" == "$pos" && "$direction" == "-f" ]]; then
@@ -111,9 +118,9 @@ next_display_or_space_looping() {
         next="$last"
     else
         if [[ "$direction" == "-f" ]]; then
-            next="$(( mcidx + 1 ))"
+            next="${arr[$((pos + 1))]}"
         else
-            next="$(( mcidx - 1 ))"
+            next="${arr[$((pos - 1))]}"
         fi
     fi
 
